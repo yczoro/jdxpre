@@ -1,7 +1,7 @@
 <?php
 ini_set('memory_limit', '512M');
 // CL 엑셀관련 파일 => 기존에 있는 소스를 조금만 변형해서 만듬
-// 큰변동사항 없음
+// 큰변동사항 없음.
 
 $Dir="../";
 include_once($Dir."lib/init.php");
