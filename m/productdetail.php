@@ -1030,7 +1030,7 @@ function mcroPageLoaded(){
             <section name='opt' >
                 <h4><?=$subjectVal?></h4>
                 <div class="select-def">
-                    <select name='opt_value'
+                    <select name='opt_value' class="se_opt"
                         data-type='<?=$_pdata->option_type?>'
                         data-prcode='<?=$_pdata->productcode?>'
                         data-depth='<?=($subjectKey + 1)?>'
@@ -2533,10 +2533,14 @@ if( count( $reviewList ) > 0 ) {
         }).done( function( data ) {
             if( data.basketidx ){
                if(chk_login){
-                   location.href = "order.php?"+"basketidxs=" + data.basketidx;
+                    
+                    jQuery('select[name=opt_value] option:eq(0)').prop('selected', true);
+                    jQuery('#m_jdx_quantity').html('<option value="0">수량 선택</option>');
+                    location.href = "order.php?"+"basketidxs=" + data.basketidx;
                }else{
-                   location.href = "login.php?"+"chUrl=/m/order.php?basketidxs=" + data.basketidx;
+                    location.href = "login.php?"+"chUrl=/m/order.php?basketidxs=" + data.basketidx;
                }
+               
              } else {
                 alert('장바구니 등록이 실패되었습니다.');
             }
